@@ -1,0 +1,15 @@
+{
+  "name": "code-jigsaw-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Code Jigsaw — Rebuild. Think. Code.",
+  "scripts": {
+    "install:all": "npm install --prefix server && npm install --prefix client",
+    "seed": "npm run seed --prefix server",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "build:server": "npm run build --prefix server",
+    "build:client": "npm run build --prefix client",
+    "build": "npm run build:server && npm run build:client"
+  }
+}
