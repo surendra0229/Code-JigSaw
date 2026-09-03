@@ -60,19 +60,19 @@ export function runAllTests() {
 
   // TEST SUITE 2: ADMIN AUTH & SECURITY
   console.log('\n[Suite 2] Admin Authentication & Isolation:');
-  const pass = 'Surendra@1919';
+  const pass = 'TestAdminPass123!';
   const hash = hashPassword(pass);
   assert(verifyPassword(pass, hash) === true, 'Correct Admin password verifies against hash');
   assert(verifyPassword('WrongPass', hash) === false, 'Incorrect Admin password fails verification');
 
   const adminToken = createAdminToken({
     id: 'admin-123',
-    email: 'surendrachennamalli177@gmail.com',
-    userId: '02092006',
+    email: 'admin@example.com',
+    userId: 'admin123',
     displayName: 'Admin'
   });
   const decodedAdmin = verifyAdminToken(adminToken);
-  assert(decodedAdmin !== null && decodedAdmin.email === 'surendrachennamalli177@gmail.com' && decodedAdmin.userId === '02092006', 'Admin token signs and decodes email & userId correctly');
+  assert(decodedAdmin !== null && decodedAdmin.email === 'admin@example.com' && decodedAdmin.userId === 'admin123', 'Admin token signs and decodes email & userId correctly');
   assert(verifyAdminToken('invalid.token.string') === null, 'Malformed admin token is rejected');
 
   // TEST SUITE 3: PLAYER AUTH & PERMANENT IDENTITY

@@ -142,11 +142,11 @@ MONGODB_URI=mongodb://127.0.0.1:27017/code_jigsaw
 CLIENT_URL=http://localhost:5173
 JWT_SECRET=super_secret_jwt_key_code_jigsaw_2026
 
-# Admin Credentials (Auto-created on server start if missing)
+# Admin Credentials (Auto-created on server start if missing in DB)
 ADMIN_NAME=Admin
-ADMIN_EMAIL=surendrachennamalli177@gmail.com
-ADMIN_USER_ID=02092006
-ADMIN_PASSWORD=Surendra@1919
+ADMIN_EMAIL=admin@example.com
+ADMIN_USER_ID=admin123
+ADMIN_PASSWORD=change_this_secure_password_123
 
 # Optional: Path to custom 1200+ questions JSON file for seeding
 # SEED_FILE_PATH=c:/Users/suren/Downloads/code_jigsaw_questions_1200.json
@@ -228,9 +228,8 @@ npm run dev
 The backend automatically creates and maintains a single authoritative Admin account upon startup:
 
 - **Admin Login Route**: `/admin/login` (accessible via Navbar Admin portal button)
-- **Email Identifier**: `surendrachennamalli177@gmail.com`
-- **User ID Identifier**: `02092006`
-- **Password**: `Surendra@1919`
+- **Configured via Environment Variables**: Set `ADMIN_EMAIL`, `ADMIN_USER_ID`, and `ADMIN_PASSWORD` in `server/.env`.
+- **Default Fallbacks**: `ADMIN_EMAIL` (`admin@example.com`), `ADMIN_USER_ID` (`admin123`), `ADMIN_PASSWORD` (`AdminPass@123456`).
 
 ### Admin Features
 1. **Overview Dashboard**: Displays 4 metrics: Total Questions, Supported Languages (8), Registered Players, and Top Rank Player.

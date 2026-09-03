@@ -78,8 +78,8 @@ export const verifyAdminToken = (token: string): { id: string; email: string; us
 
     return {
       id: body.id,
-      email: body.email || 'surendrachennamalli177@gmail.com',
-      userId: body.userId || '02092006',
+      email: body.email || 'admin@example.com',
+      userId: body.userId || 'admin123',
       displayName: body.displayName || 'Admin'
     };
   } catch {

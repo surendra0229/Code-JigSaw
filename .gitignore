@@ -1,8 +1,18 @@
+# Dependencies & Outputs
 node_modules/
 dist/
 build/
+
+# Environment Variables & Secrets (CRITICAL FOR SECURITY)
 .env
 .env.local
 .env.*.local
+*.env
+server/.env
+client/.env
+
+# Logs & Temporary Files
 *.log
 .DS_Store
+.vscode/
+.idea/

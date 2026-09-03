@@ -4,9 +4,9 @@ import { hashPassword, verifyPassword } from './authUtils.js';
 export const ensureAdminAccount = async (): Promise<void> => {
   try {
     const adminName = process.env.ADMIN_NAME || 'Admin';
-    const adminEmail = (process.env.ADMIN_EMAIL || 'surendrachennamalli177@gmail.com').toLowerCase().trim();
-    const adminUserId = (process.env.ADMIN_USER_ID || '02092006').trim();
-    const adminPass = process.env.ADMIN_PASSWORD || process.env.ADMIN_INITIAL_PASSWORD || 'Surendra@1919';
+    const adminEmail = (process.env.ADMIN_EMAIL || 'admin@example.com').toLowerCase().trim();
+    const adminUserId = (process.env.ADMIN_USER_ID || 'admin123').trim();
+    const adminPass = process.env.ADMIN_PASSWORD || process.env.ADMIN_INITIAL_PASSWORD || 'AdminPass@123456';
 
     // Remove legacy admin accounts that do not match the target email or userId
     await Admin.deleteMany({
