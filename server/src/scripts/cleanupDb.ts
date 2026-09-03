@@ -15,6 +15,7 @@
  */
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import { ensureAdminAccount } from '../utils/initAdmin.js';
 
 dotenv.config();
 
@@ -41,7 +42,7 @@ const cleanup = async () => {
     console.log('  ❌  playerprogresses');
     console.log('\n[Cleanup] The following collections will be PRESERVED:');
     console.log('  ✅  questions  (all 1200+ problem codes)');
-    console.log('  ✅  admins     (admin login details)');
+    console.log('  ✅  admins     (admin login details synced from .env)');
     console.log('\n[Cleanup] Starting cleanup...\n');
 
     // ── Delete game sessions ───────────────────────────────────────────
@@ -67,6 +68,9 @@ const cleanup = async () => {
     } else {
       console.log('[Cleanup] ℹ️  Collection "playerprogresses" does not exist — skipping.');
     }
+
+    // ── Update Admin Account from .env ──────────────────────────────────
+    await ensureAdminAccount();
 
     // ── Verify preserved collections ──────────────────────────────────
     const questionCount = colNames.includes('questions')
